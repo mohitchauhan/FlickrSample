@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingLeft="20dp"
+    android:minHeight="50dp"
+    android:gravity="center_vertical"
+    android:id="@+id/loading_progress"
+    android:paddingRight="20dp">
+
+    <TextView
+        android:id="@+id/searching"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="match_parent"
+        android:layout_gravity="left"
+        android:gravity="center_vertical"
+        android:text="@string/txt_searching"
+        />
+
+    <ProgressBar
+
+        android:layout_gravity="center_vertical"
+        android:layout_width="24dp"
+        android:layout_height="25dp"
+        />
+
+</LinearLayout>
+

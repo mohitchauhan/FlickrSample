@@ -1,0 +1,55 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "flicker.example.an.flickersearch"
+        minSdkVersion 19
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        targetCompatibility 1.8
+        sourceCompatibility 1.8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation rootProject.ext.supportLibAppCompat
+    implementation rootProject.ext.supportLibDesign
+
+    //dagger
+    annotationProcessor rootProject.ext.daggerCompiler
+    implementation rootProject.ext.dagger
+    implementation rootProject.ext.daggerAndroid
+    implementation rootProject.ext.daggerAndroidSupport
+    annotationProcessor rootProject.ext.daggerAndroidProcessor
+
+    // gson
+    implementation rootProject.ext.gson
+
+    // rxjava
+    implementation rootProject.ext.rxAndroid
+
+    // okhttp
+    implementation rootProject.ext.okhttp
+    implementation rootProject.ext.okhttpLogging
+
+    testImplementation 'junit:junit:4.12'
+    testCompile 'org.robolectric:robolectric:3.4.2'
+    testImplementation 'org.mockito:mockito-core:2.11.0'
+
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation ('com.android.support.test.espresso:espresso-core:3.0.1'){
+        exclude group: 'com.android.support', module: 'support-annotations'
+    }
+}
